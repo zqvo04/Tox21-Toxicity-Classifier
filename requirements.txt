@@ -1,0 +1,23 @@
+# Core scientific stack
+numpy>=1.23,<2.0
+pandas>=1.5
+scipy>=1.10
+scikit-learn>=1.2
+
+# Cheminformatics / Deep learning for molecules
+deepchem==2.7.1
+rdkit-pypi>=2022.9.5
+
+# PyTorch (install matching CUDA build via setup_colab.sh on Colab)
+torch>=2.0,<2.3
+
+# PyTorch Geometric (install via setup_colab.sh to match torch/cuda)
+torch-geometric>=2.3
+
+# Visualization
+matplotlib>=3.6
+seaborn>=0.12
+
+# Notebook / utils
+tqdm>=4.64
+jupyter
