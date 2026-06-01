@@ -2,7 +2,7 @@
 
 Modules
 -------
-dataset  : DeepChem Tox21 loading (ECFP & GraphConv featurizers, NaN masking).
+dataset  : Tox21 loading via RDKit (ECFP & atom-graph featurizers, NaN masking).
 models   : ECFPClassifier (MLP) and GCNClassifier (PyG GraphConv).
 losses   : MaskedBCEWithLogitsLoss, FocalLoss, pos_weight utilities.
 train    : Common Trainer with early stopping & checkpointing.

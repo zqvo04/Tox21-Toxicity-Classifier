@@ -24,12 +24,17 @@ Tox21 은 12개의 독성 엔드포인트(핵수용체 신호 NR-*, 스트레스
 
 | 항목 | 내용 |
 |------|------|
-| Dataset | DeepChem MoleculeNet `tox21` (scaffold split) |
+| Dataset | MoleculeNet **Tox21** CSV (RDKit 로딩, scaffold split) |
 | Tasks | 12 multi-label toxicity endpoints |
-| Features | **ECFP** (Morgan, radius=2, 2048 bits) / **MolGraphConvFeaturizer** |
+| Features | **ECFP** (Morgan, radius=2, 2048 bits) / **atom-graph** (RDKit) |
 | Models | `ECFPClassifier` (MLP) / `GCNClassifier` (3× GCNConv) |
 | Loss | Masked BCE (+pos_weight) / Focal Loss |
 | Metrics | per-task ROC-AUC, PR-AUC, F1 + mean ROC-AUC |
+
+> **데이터 로딩 노트**: DeepChem MoleculeNet 의 Tox21 데이터를 사용하되, 로딩·특징화·
+> scaffold split 은 **RDKit 으로 직접 구현**했습니다. 최신 NumPy 에서 DeepChem featurizer
+> 가 `inhomogeneous shape` 로 깨지는 문제를 피하고, Colab 어디서나 안정적으로 돌도록 하기
+> 위함입니다. (DeepChem 설치는 선택 사항)
 
 ---
 
@@ -134,7 +139,8 @@ GraphConv 는 메시지 전달로 더 유연한 표현을 학습하나 해석성
 
 ## 🛠️ Tech Stack
 
-DeepChem · PyTorch · PyTorch Geometric · RDKit · scikit-learn · Matplotlib · Seaborn
+RDKit · PyTorch · PyTorch Geometric · scikit-learn · Matplotlib · Seaborn
+(MoleculeNet Tox21 데이터 · DeepChem 선택)
 
 ---
 

@@ -1,17 +1,20 @@
 # Core scientific stack
-numpy>=1.23,<2.0
+numpy>=1.23
 pandas>=1.5
 scipy>=1.10
 scikit-learn>=1.2
 
-# Cheminformatics / Deep learning for molecules
-deepchem==2.7.1
-rdkit-pypi>=2022.9.5
+# Cheminformatics
+# NOTE: use the official 'rdkit' package (rdkit-pypi is unmaintained and has
+# no wheels for Python 3.11/3.12 / modern Colab).
+# Data loading + featurization is done directly with RDKit for robustness;
+# DeepChem is optional and NOT required to run the notebooks.
+rdkit>=2023.3
 
-# PyTorch (install matching CUDA build via setup_colab.sh on Colab)
-torch>=2.0,<2.3
+# PyTorch (Colab ships its own build; see setup_colab.sh / notebook setup cell)
+torch>=2.0
 
-# PyTorch Geometric (install via setup_colab.sh to match torch/cuda)
+# PyTorch Geometric (core is pure-python; works on top of the installed torch)
 torch-geometric>=2.3
 
 # Visualization
